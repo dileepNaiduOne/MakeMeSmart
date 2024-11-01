@@ -1,1 +1,1 @@
-# make-me-smart
+# MakeMeSmart
