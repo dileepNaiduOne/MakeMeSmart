@@ -12,7 +12,7 @@ user_name = "Monkey"
 if "user_name" not in st.session_state:
     st.session_state["user_name"] = user_name
 
-st.image(".\img\logo-light.svg", width=100)
+st.image(r".\img\logo-light.svg", width=100)
 st.title(f"Hi, {user_name} 🤗", anchor=False)
 st.divider()
 

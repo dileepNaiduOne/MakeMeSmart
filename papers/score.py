@@ -5,7 +5,7 @@ import time
 with open( "style.css" ) as css:
     st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
 
-st.image(".\img\logo-light.svg", width=70)
+st.image(r".\img\logo-light.svg", width=70)
 
 st.title(f"{st.session_state["user_name"]}, You Scored", anchor=False)
 st.title(f":red[{st.session_state["Score"]}]/10", anchor=False)
