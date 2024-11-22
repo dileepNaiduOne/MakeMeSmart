@@ -53,7 +53,7 @@ st.write("\n")
 st.write("\n")
 
 
-check_button = st.button(label="Check", type="primary", use_container_width=True, disabled=st.session_state.q5_clicked, key='q5')
+check_button = st.button(label="Check", type="primary", use_container_width=True, disabled=st.session_state.q5_clicked, key='q5', on_click=check_answer)
 
 if check_button:
     if option_chossen == None:

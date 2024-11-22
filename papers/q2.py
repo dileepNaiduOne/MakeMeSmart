@@ -48,12 +48,12 @@ if 'q2' in st.session_state and st.session_state.q2 == True and ('q2_check' in s
 else:
     st.session_state.q2_clicked = False
 
-option_chossen = st.pills(label="q2", options=["A", "B", "C", "D"], label_visibility="collapsed",  disabled=st.session_state.q2_clicked)
+option_chossen = st.pills(label="q2", options=["A", "B", "C", "D"], label_visibility="collapsed", disabled=st.session_state.q2_clicked)
 st.write("\n")
 st.write("\n")
 
 
-check_button = st.button(label="Check", type="primary", use_container_width=True, disabled=st.session_state.q2_clicked, key='q2')
+check_button = st.button(label="Check", type="primary", use_container_width=True, disabled=st.session_state.q2_clicked, key='q2', on_click=check_answer)
 
 
 if check_button:

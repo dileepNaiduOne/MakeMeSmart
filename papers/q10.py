@@ -52,7 +52,7 @@ option_chossen = st.pills(label="q10", options=["A", "B", "C", "D"], label_visib
 st.write("\n")
 st.write("\n")
 
-check_button = st.button(label="Check", type="primary", use_container_width=True, disabled=st.session_state.q10_clicked, key='q10')
+check_button = st.button(label="Check", type="primary", use_container_width=True, disabled=st.session_state.q10_clicked, key='q10', on_click=check_answer)
 
 if check_button:
     if option_chossen == None:
