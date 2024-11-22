@@ -40,7 +40,11 @@ st.write(f"C. {ops['C']}")
 st.write(f"D. {ops['D']}")
 st.write("\n")
 
-if 'q7' in st.session_state and st.session_state.q7 == True:
+def check_answer():
+    if option_chossen != None:
+        st.session_state["q7_check"] = True
+        
+if 'q7' in st.session_state and st.session_state.q7 == True and ('q7_check' in st.session_state):
     st.session_state.q7_clicked = True
 else:
     st.session_state.q7_clicked = False

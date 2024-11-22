@@ -43,7 +43,11 @@ st.write(f"C. {ops['C']}")
 st.write(f"D. {ops['D']}")
 st.write("\n")
 
-if 'q1' in st.session_state and st.session_state.q1 == True:
+def check_answer():
+    if option_chossen != None:
+        st.session_state["q1_check"] = True
+
+if 'q1' in st.session_state and st.session_state.q1 == True and ('q1_check' in st.session_state):
     st.session_state.q1_clicked = True
 else:
     st.session_state.q1_clicked = False
@@ -53,7 +57,7 @@ st.write("\n")
 st.write("\n")
 
 
-check_button = st.button(label="Check", type="primary", use_container_width=True, disabled=st.session_state.q1_clicked, key='q1')
+check_button = st.button(label="Check", type="primary", use_container_width=True, disabled=st.session_state.q1_clicked, key='q1', on_click=check_answer)
 
 st.session_state["Score"] = 0
 
@@ -61,7 +65,6 @@ if check_button:
     if option_chossen == None:
         st.error(body=f"{st.session_state["user_name"]}! Choose a Option", icon=":material/sentiment_very_dissatisfied:")
     else:
-        
         if q["correct answer"] == ops[option_chossen]:
             confetti(emojis_correct)
             st.session_state["Score"] += 1
