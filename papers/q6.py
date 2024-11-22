@@ -14,10 +14,7 @@ emojis_correct = [
     {"emoji": "🤘", "score": 0.1},
     {"emoji": "👍", "score": 0.1},
     {"emoji": "🙌", "score": 0.1},
-    {"emoji": "🤩", "score": 0.1},
     {"emoji": "😘", "score": 0.1},
-    {"emoji": "😌", "score": 0.1},
-    {"emoji": "🤑", "score": 0.1},
     {"emoji": "😍", "score": 0.1},
     {"emoji": "🥰", "score": 0.1},
 ]
@@ -41,11 +38,18 @@ st.write(f"B. {ops['B']}")
 st.write(f"C. {ops['C']}")
 st.write(f"D. {ops['D']}")
 st.write("\n")
-option_chossen = st.pills(label="", options=["A", "B", "C", "D"], label_visibility="collapsed")
-st.write("\n")
-st.write("\n")
-check_button = st.button(label="Check", type="primary", use_container_width=True)
 
+if 'q6' in st.session_state and st.session_state.q6 == True:
+    st.session_state.q6_clicked = True
+else:
+    st.session_state.q6_clicked = False
+
+option_chossen = st.pills(label="q6", options=["A", "B", "C", "D"], label_visibility="collapsed", disabled=st.session_state.q6_clicked)
+st.write("\n")
+st.write("\n")
+
+
+check_button = st.button(label="Check", type="primary", use_container_width=True, disabled=st.session_state.q6_clicked, key='q6')
 
 if check_button:
     if option_chossen == None:
@@ -54,10 +58,10 @@ if check_button:
         if q["correct answer"] == ops[option_chossen]:
             confetti(emojis_correct)
             st.session_state["Score"] += 1
-            time.sleep(3)
+            time.sleep(4)
             st.switch_page("papers/q7.py")
         else:
-            st.error("Wrong")
-            time.sleep(1)
+            st.error(f":red[WRONG] - Correct One is : {q["correct answer"]}")
+            time.sleep(4)
             st.switch_page("papers/q7.py")
         

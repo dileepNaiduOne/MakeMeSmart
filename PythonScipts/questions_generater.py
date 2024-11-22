@@ -26,7 +26,7 @@ def ask_questions(topic, difficulty):
     3. Ensure that all questions are distinct, with no repetition or overlap.
     4. Questions should be concise and readable within one minute.
     5. Format your output as a Python dictionary array, similar to the provided examples below. The output should be ready for direct processing by a Python script.
-    6. Make sure that you are not giving correct answer in only one option most of the time. The correct  answer should be in any of the 4 options.
+    6. Make sure that you are not giving "All of the above" and "None of the above" options.
 
     Output Examples:
     1st Example :
@@ -193,7 +193,7 @@ def ask_questions(topic, difficulty):
 
 
     # Intiate the model
-    llm = ChatGoogleGenerativeAI(model="gemini-pro", api_key = os.getenv("GOOGLE-API-KEY"))
+    llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro-latest", api_key = os.getenv("GOOGLE-API-KEY"))
 
 
     llm_chain = prompt_template | llm

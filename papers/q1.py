@@ -14,24 +14,21 @@ emojis_correct = [
     {"emoji": "🤘", "score": 0.1},
     {"emoji": "👍", "score": 0.1},
     {"emoji": "🙌", "score": 0.1},
-    {"emoji": "🤩", "score": 0.1},
     {"emoji": "😘", "score": 0.1},
-    {"emoji": "😌", "score": 0.1},
-    {"emoji": "🤑", "score": 0.1},
     {"emoji": "😍", "score": 0.1},
     {"emoji": "🥰", "score": 0.1},
 ]
 
 
 st.write("\n")
-print(questions)
+# print(questions)
 
 i = 0
 
 q = questions[i]
-print("==="*50)
-print(questions[i])
-print("==="*50)
+# print("==="*50)
+# print(questions[i])
+# print("==="*50)
 ops = {
     "A" : q["options"][0],
     "B" : q["options"][1],
@@ -45,10 +42,18 @@ st.write(f"B. {ops['B']}")
 st.write(f"C. {ops['C']}")
 st.write(f"D. {ops['D']}")
 st.write("\n")
-option_chossen = st.pills(label="", options=["A", "B", "C", "D"], label_visibility="collapsed")
+
+if 'q1' in st.session_state and st.session_state.q1 == True:
+    st.session_state.q1_clicked = True
+else:
+    st.session_state.q1_clicked = False
+
+option_chossen = st.pills(label="q1", options=["A", "B", "C", "D"], label_visibility="collapsed", disabled=st.session_state.q1_clicked)
 st.write("\n")
 st.write("\n")
-check_button = st.button(label="Check", type="primary", use_container_width=True)
+
+
+check_button = st.button(label="Check", type="primary", use_container_width=True, disabled=st.session_state.q1_clicked, key='q1')
 
 st.session_state["Score"] = 0
 
@@ -56,13 +61,14 @@ if check_button:
     if option_chossen == None:
         st.error(body=f"{st.session_state["user_name"]}! Choose a Option", icon=":material/sentiment_very_dissatisfied:")
     else:
+        
         if q["correct answer"] == ops[option_chossen]:
             confetti(emojis_correct)
             st.session_state["Score"] += 1
-            time.sleep(3)
+            time.sleep(4)
             st.switch_page("papers/q2.py")
         else:
-            st.error("Wrong")
-            time.sleep(1)
+            st.error(f":red[WRONG] - Correct One is : {q["correct answer"]}")
+            time.sleep(4)
             st.switch_page("papers/q2.py")
         
