@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit_confetti import confetti
 import time
 
+
 with open( "style.css" ) as css:
     st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
 

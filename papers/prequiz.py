@@ -7,7 +7,7 @@ import random
 with open( "style.css" ) as css:
     st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
 
-with st.status(f"Getting 10 Questions for {st.session_state["user_name"]}", expanded=True):
+with st.status(f"Getting 10 Questions for {st.session_state.person["name"]}", expanded=True):
     st.write("Searching Internet...")
     questions = questions_generater.ask_questions(st.session_state["input_topic"], st.session_state["input_difficulty"])
     st.session_state["questions"] = eval(questions[9:-4])

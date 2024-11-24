@@ -14,3 +14,5 @@ langsmith==0.1.143
 python-dotenv==1.0.1
 streamlit==1.40.1
 streamlit-confetti==0.1.0
+mysql-connector==2.2.9
+pymysql==1.1.1
