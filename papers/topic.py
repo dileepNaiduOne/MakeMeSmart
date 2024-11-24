@@ -7,13 +7,13 @@ with open( "style.css" ) as css:
 # ---------------------------------------------------------------------------------------------------------
 # ---------------------------------------------------------------------------------------------------------
 
-user_name = st.session_state.person["name"]
+
 
 # if "user_name" not in st.session_state:
 #     st.session_state["user_name"] = user_name
 
 st.image(r"./img/logo-light.svg", width=100)
-st.title(f"Hi, {user_name} 🤗", anchor=False)
+st.title(f"Hi, {st.session_state.person["name"]} 🤗", anchor=False)
 st.divider()
 
 st.text("\n")
@@ -30,11 +30,11 @@ quiz_button = st.button(label="Start Quiz", type="primary", use_container_width=
 
 if quiz_button:
     if (len(input_topic) == 0) and (input_difficulty == None):
-        st.error(body=f"{user_name}! You did not type Topic & Difficulty Level", icon=":material/sentiment_very_dissatisfied:")
+        st.error(body=f"{st.session_state.person["name"]}! You did not type Topic & Difficulty Level", icon=":material/sentiment_very_dissatisfied:")
     elif (len(input_topic) == 0):
-        st.error(body=f"{user_name}! You did not type Topic", icon=":material/sentiment_sad:")
+        st.error(body=f"{st.session_state.person["name"]}! You did not type Topic", icon=":material/sentiment_sad:")
     elif (input_difficulty == None):
-        st.error(body=f"{user_name}! You did not type Difficulty Level", icon=":material/sentiment_dissatisfied:")
+        st.error(body=f"{st.session_state.person["name"]}! You did not type Difficulty Level", icon=":material/sentiment_dissatisfied:")
     else:
         st.switch_page("papers/prequiz.py")
 

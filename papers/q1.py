@@ -64,7 +64,7 @@ st.session_state["Score"] = 0
 
 if check_button:
     if option_chossen == None:
-        st.error(body=f"{st.session_state["user_name"]}! Choose a Option", icon=":material/sentiment_very_dissatisfied:")
+        st.error(body=f"{st.session_state.person["name"]}! Choose a Option", icon=":material/sentiment_very_dissatisfied:")
     else:
         if q["correct answer"] == ops[option_chossen]:
             confetti(emojis_correct)
@@ -72,7 +72,7 @@ if check_button:
             time.sleep(4)
             st.switch_page("papers/q2.py")
         else:
-            st.error(f":red[WRONG] - Correct One is : {q["correct answer"]}")
+            st.error(f":red[WRONG] - ✅{q["correct answer"]}")
             time.sleep(4)
             st.switch_page("papers/q2.py")
         
