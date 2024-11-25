@@ -49,23 +49,24 @@ option_chossen = st.pills(label="q10", options=["A", "B", "C", "D"], label_visib
 st.write("\n")
 st.write("\n")
 
-check_button = st.button(label="Check", type="primary", use_container_width=True, disabled=st.session_state.q10_clicked, key='q10')
+check_button = st.button(label="CHECK", type="primary", use_container_width=True, disabled=st.session_state.q10_clicked, key='q10')
 if check_button:
     if (option_chossen != None) or (option_chossen != []):
         st.session_state["q10_check"] = True
 
 if check_button:
-    if option_chossen == None:
+    if (option_chossen == None) or (option_chossen == []):
         st.error(body=f"{st.session_state.person["name"]}! Choose a Option", icon=":material/sentiment_very_dissatisfied:")
     else:
         print(q["correct answer"], ops[option_chossen])
         if q["correct answer"] == ops[option_chossen]:
             confetti(emojis_correct)
-            st.session_state["Score"] += 1
+            if "q10_done" not in st.session_state:
+                st.session_state["Score"] += 1
             time.sleep(4)
             st.switch_page("papers/score.py")
         else:
             st.error(f":red[WRONG] - ✅{q["correct answer"]}")
             time.sleep(4)
             st.switch_page("papers/score.py")
-        
+        st.session_state["q10_done"] = "True"

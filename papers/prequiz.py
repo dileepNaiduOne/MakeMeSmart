@@ -143,5 +143,5 @@ for i in st.session_state["questions"]:
 #     "difficulty level": "Hard"
 #   }
 # ]
-
+print(st.session_state["questions"])
 st.switch_page("papers/q1.py")

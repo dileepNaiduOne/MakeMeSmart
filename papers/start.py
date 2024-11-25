@@ -31,7 +31,7 @@ def sign_up():
             email = st.text_input("Email Address :", placeholder="Enter your email address")
             gender = st.selectbox(label="Gender", options=["Female", "Male", "Others"], index=None)
 
-            submitted = st.form_submit_button("SIGN UP", type="primary")
+            submitted = st.form_submit_button("SIGN UP", type="primary", use_container_width=True)
 
             if submitted:
                 if not secret_sentence or not name or not age or not email or not gender:
@@ -69,7 +69,7 @@ def log_in():
     with st.form("login_form"):
         secret_sentence = st.text_input("Secret Sentence :", placeholder="Type here. Remember the Sign Up Sentence", type="password")
 
-        submitted = st.form_submit_button("LOG IN", type="primary")
+        submitted = st.form_submit_button("LOG IN", type="primary", use_container_width=True)
 
         if submitted:
             if not secret_sentence:

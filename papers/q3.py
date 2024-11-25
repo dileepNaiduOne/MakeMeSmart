@@ -50,22 +50,24 @@ st.write("\n")
 st.write("\n")
 
 
-check_button = st.button(label="Check", type="primary", use_container_width=True, disabled=st.session_state.q3_clicked, key='q3')
+check_button = st.button(label="CHECK", type="primary", use_container_width=True, disabled=st.session_state.q3_clicked, key='q3')
 if check_button:
     if (option_chossen != None) or (option_chossen != []):
         st.session_state["q3_check"] = True
 
 if check_button:
-    if option_chossen == None:
+    if (option_chossen == None) or (option_chossen == []):
         st.error(body=f"{st.session_state.person["name"]}! Choose a Option", icon=":material/sentiment_very_dissatisfied:")
     else:
         if q["correct answer"] == ops[option_chossen]:
             confetti(emojis_correct)
-            st.session_state["Score"] += 1
+            if "q3_done" not in st.session_state:
+                st.session_state["Score"] += 1
             time.sleep(4)
             st.switch_page("papers/q4.py")
         else:
             st.error(f":red[WRONG] - ✅{q["correct answer"]}")
             time.sleep(4)
             st.switch_page("papers/q4.py")
+        st.session_state["q3_done"] = "True"
         
