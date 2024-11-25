@@ -12,7 +12,9 @@ st.title(f"{st.session_state.person["name"]}, You Scored", anchor=False)
 st.title(f":red[{st.session_state["Score"]}]/10", anchor=False)
 st.title(f"in '{st.session_state["input_topic"]}'", anchor=False)
 
-add_score_data(st.session_state.person["secret_sentence"], st.session_state["input_topic"], st.session_state["input_difficulty"], st.session_state["Score"])
+if "score_data" not in st.session_state:
+    add_score_data(st.session_state.person["secret_sentence"], st.session_state["input_topic"], st.session_state["input_difficulty"], st.session_state["Score"])
+    st.session_state["score_data"] = True
 
 return_button = st.button(label="Back to Home", type="primary")
 
