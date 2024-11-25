@@ -19,5 +19,5 @@ if "score_data" not in st.session_state:
 return_button = st.button(label="Back to Home", type="primary")
 
 if return_button:
-    st.switch_page("papers/topic.py")
+    st.switch_page("papers/home.py")
 

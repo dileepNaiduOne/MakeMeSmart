@@ -45,7 +45,7 @@ st.write(f"D. {ops['D']}")
 st.write("\n")
 
 def check_answer():
-    if option_chossen != None:
+    if (option_chossen != None) or (option_chossen != []):
         st.session_state["q1_check"] = True
 
 if 'q1' in st.session_state and st.session_state.q1 == True and ('q1_check' in st.session_state):
