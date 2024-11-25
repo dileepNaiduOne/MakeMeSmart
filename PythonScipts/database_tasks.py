@@ -57,3 +57,18 @@ def get_data_from_people_using_ss(ss):
 
     return list(mycursor)[0]
 
+
+def add_score_data(ss, topic, dificulty, score):
+    load_dotenv()
+
+    db = pymysql.connect(
+        host = os.getenv("MYSQL_ADDON_HOST"),
+        user = os.getenv("MYSQL_ADDON_USER"),
+        password = os.getenv("MYSQL_ADDON_PASSWORD"),
+        database=os.getenv("MYSQL_ADDON_DB")
+    )
+
+    mycursor = db.cursor()
+
+    mycursor.execute(f"insert into scores (secret_sentence, date, topic, dificulty, score) values ('{ss}', now(), '{topic}', '{dificulty}', {score})")
+    db.commit()
