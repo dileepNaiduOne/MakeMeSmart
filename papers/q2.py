@@ -39,9 +39,6 @@ st.write(f"C. {ops['C']}")
 st.write(f"D. {ops['D']}")
 st.write("\n")
 
-def check_answer():
-    if (option_chossen != None) or (option_chossen != []):
-        st.session_state["q2_check"] = True
 
 if 'q2' in st.session_state and st.session_state.q2 == True and ('q2_check' in st.session_state):
     st.session_state.q2_clicked = True
@@ -53,8 +50,10 @@ st.write("\n")
 st.write("\n")
 
 
-check_button = st.button(label="Check", type="primary", use_container_width=True, disabled=st.session_state.q2_clicked, key='q2', on_click=check_answer)
-
+check_button = st.button(label="Check", type="primary", use_container_width=True, disabled=st.session_state.q2_clicked, key='q2')
+if check_button:
+    if (option_chossen != None) or (option_chossen != []):
+        st.session_state["q2_check"] = True
 
 if check_button:
     if option_chossen == None:

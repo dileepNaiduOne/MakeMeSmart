@@ -38,10 +38,6 @@ st.write(f"B. {ops['B']}")
 st.write(f"C. {ops['C']}")
 st.write(f"D. {ops['D']}")
 st.write("\n")
-
-def check_answer():
-    if (option_chossen != None) or (option_chossen != []):
-        st.session_state["q4_check"] = True
         
 if 'q4' in st.session_state and st.session_state.q4 == True and ('q4_check' in st.session_state):
     st.session_state.q4_clicked = True
@@ -52,8 +48,10 @@ option_chossen = st.pills(label="q4", options=["A", "B", "C", "D"], label_visibi
 st.write("\n")
 st.write("\n")
 
-check_button = st.button(label="Check", type="primary", use_container_width=True, disabled=st.session_state.q4_clicked, key='q4', on_click=check_answer)
-
+check_button = st.button(label="Check", type="primary", use_container_width=True, disabled=st.session_state.q4_clicked, key='q4')
+if check_button:
+    if (option_chossen != None) or (option_chossen != []):
+        st.session_state["q4_check"] = True
 
 if check_button:
     if option_chossen == None:
