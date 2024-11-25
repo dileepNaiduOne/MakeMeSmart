@@ -8,6 +8,8 @@ with open( "style.css" ) as css:
 
 st.image(r"./img/logo-light.svg", width=70)
 
+st.session_state["Score"] = sum(st.session_state.quesion_bank.values())
+
 st.title(f":gray[{st.session_state.person["name"]}, You Scored]", anchor=False)
 st.title(f":red[{st.session_state["Score"]}]:gray[/10]", anchor=False)
 st.title(f":gray[in '{st.session_state["input_topic"]}']", anchor=False)

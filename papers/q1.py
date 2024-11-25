@@ -61,7 +61,6 @@ if check_button:
     if (option_chossen != None) or (option_chossen != []):
         st.session_state["q1_check"] = True
 
-st.session_state["Score"] = 0
 
 if check_button:
     if (option_chossen == None) or (option_chossen == []):
@@ -69,13 +68,15 @@ if check_button:
     else:
         if q["correct answer"] == ops[option_chossen]:
             confetti(emojis_correct)
-            if "q1_done" not in st.session_state:
-                st.session_state["Score"] += 1
+            if st.session_state.quesion_bank[1] == None:
+                st.session_state.quesion_bank[1] = 1
             time.sleep(4)
             st.switch_page("papers/q2.py")
         else:
+            if st.session_state.quesion_bank[1] == None:
+                st.session_state.quesion_bank[1] = 0
             st.error(f":red[WRONG] - ✅{q["correct answer"]}")
             time.sleep(4)
             st.switch_page("papers/q2.py")
-        st.session_state["q1_done"] = "True"
+        
         

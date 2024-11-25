@@ -143,5 +143,21 @@ for i in st.session_state["questions"]:
 #     "difficulty level": "Hard"
 #   }
 # ]
+
+st.session_state["Score"] = 0
+
+st.session_state.quesion_bank = {
+    1 : None,
+    2 : None,
+    3 : None,
+    4 : None,
+    5 : None,
+    6 : None,
+    7 : None,
+    8 : None,
+    9 : None,
+    10 : None
+}
+
 print(st.session_state["questions"])
 st.switch_page("papers/q1.py")
