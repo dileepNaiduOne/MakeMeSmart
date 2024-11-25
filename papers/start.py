@@ -37,23 +37,27 @@ def sign_up():
                 if not secret_sentence or not name or not age or not email or not gender:
                     st.error("All fields are required.")
                 else:
-                    st.success(f"Welcome, {name}! Your account has been created.")
-                    st.session_state.person = {
-                            "secret_sentence" : secret_sentence,
-                            "name" : name,
-                            "age" : age,
-                            "email" : email,
-                            "gender" : gender
-                    }
-
                     secret_sentence = secret_sentence.lower().replace(" ", "")
-                    name = name.lower()
-                    age = int(age)
-                    gender = gender.lower()
+                    if ckeck_if_ss_in_people(secret_sentence) == 1:
+                        st.error("Secret Sentence you texted is already using by other person. :red[Use another one]")
+                    else:
+                        st.success(f"Welcome, {name}! Your account has been created.")
+                        st.session_state.person = {
+                                "secret_sentence" : secret_sentence,
+                                "name" : name,
+                                "age" : age,
+                                "email" : email,
+                                "gender" : gender
+                        }
 
-                    add_people_data(secret_sentence, name, age, email, gender)
+                        
+                        name = name.lower()
+                        age = int(age)
+                        gender = gender.lower()
 
-                    st.rerun()
+                        add_people_data(secret_sentence, name, age, email, gender)
+
+                        st.rerun()
     else:
         st.write(f"{st.session_state.person["name"]}, Don't try to cheat me😉.")
         st.write("You have already Signed Up. Do :red[Log In]")
