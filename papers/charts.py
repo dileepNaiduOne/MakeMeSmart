@@ -5,7 +5,6 @@ import plotly.graph_objects as go
 from PythonScipts.database_tasks import add_user_data_to_charts
 from plotly.graph_objs import *
 
-st.set_page_config(layout="wide")
 
 with open( "style.css" ) as css:
     st.markdown( f'<style>{css.read()}</style>', unsafe_allow_html= True)
