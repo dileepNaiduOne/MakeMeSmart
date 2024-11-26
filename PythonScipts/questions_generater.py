@@ -195,7 +195,7 @@ def ask_questions(topic, difficulty):
 
 
     # Intiate the model
-    llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro-latest", api_key = os.getenv("GOOGLE-API-KEY"), temperature = 0.15)
+    llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro-exp-0801", api_key = os.getenv("GOOGLE-API-KEY"), temperature = 0.15)
 
 
     llm_chain = prompt_template | llm
