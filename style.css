@@ -17,6 +17,7 @@ h1, h2, h3, h4, h5, h6, [class*="css"] {
         color: #1D1F26;
         font-size: min(6vw, 6vh);
         font-weight: bold;
+        font-weight: lighter;
 }
 
 [data-baseweb="button-group"] {
