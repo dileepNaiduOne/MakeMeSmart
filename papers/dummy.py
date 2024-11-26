@@ -2,8 +2,10 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-from PythonScipts.database_tasks import add_user_data_to_charts
 from plotly.graph_objs import *
+from dotenv import load_dotenv 
+import pymysql
+import os
 
 st.set_page_config(layout="wide")
 
@@ -12,7 +14,25 @@ with open( "style.css" ) as css:
 
 st.image(r"./img/logo-light.svg", width=70)
 
-st.title("Tableau Charts will come here 😉")
+def add_user_data_to_charts(ss):
+    load_dotenv()
+
+    db = pymysql.connect(
+        host = os.getenv("MYSQL_ADDON_HOST"),
+        user = os.getenv("MYSQL_ADDON_USER"),
+        password = os.getenv("MYSQL_ADDON_PASSWORD"),
+        database=os.getenv("MYSQL_ADDON_DB")
+    )
+
+    mycursor = db.cursor()
+
+    mycursor.execute(f"truncate table charts")
+    db.commit()
+    mycursor.execute(f"insert into charts select date, topic, dificulty, score from scores where secret_sentence like '{ss}';")
+    db.commit()
+
+    mycursor.execute(f"select * from charts;")
+    return mycursor
 
 
 if "user_data" not in st.session_state:
@@ -23,17 +43,29 @@ if "user_data" not in st.session_state:
         "score" : []
     }
 
-    for i in add_user_data_to_charts(st.session_state.person["secret_sentence"]):
+    for i in add_user_data_to_charts("iam"):
         charts["date"].append(i[0])
         charts["topic"].append(i[1])
         charts["dificulty"].append(i[2])
         charts["score"].append(i[3])
 
-    st.session_state.user_data = pd.DataFrame(charts)
+    user_data = pd.DataFrame(charts)
+    st.write(user_data)
 
-st.write(st.session_state.user_data)
-## -----------------------------------------------------------------
-## -----------------------------------------------------------------
+def draw_line_plot(d):
+    fig = px.line(
+        d,
+        x="date",
+        y="score",
+        markers=True,
+        text="score",
+        title="Performance Over Time",
+    )
+    fig.update_traces(textposition="top center")
+    st.plotly_chart(fig, use_container_width=True)
+
+
+# draw_line_plot(user_data[["date", "score"]])
 
 one, two = st.columns([8, 2], vertical_alignment="center")
 three, four = st.columns([7, 3], vertical_alignment="center")
@@ -77,11 +109,3 @@ with four:
     four_c = st.container(border=True)
     with four_c:
         st.write("four")
-
-
-
-
-return_button = st.button(label="BACK TO HOME", type="primary")
-
-if return_button:
-    st.switch_page("papers/home.py")

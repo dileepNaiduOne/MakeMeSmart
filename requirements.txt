@@ -16,3 +16,5 @@ streamlit==1.40.1
 streamlit-confetti==0.1.0
 mysql-connector==2.2.9
 pymysql==1.1.1
+pandas==2.2.3
+plotly==5.24.1
