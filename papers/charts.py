@@ -78,7 +78,9 @@ def draw_bar_chart(d, key_value):
         x="Topic",
         y="MeanScore",
         title="Topics wise Top3 Mean Score",
+        color_discrete_sequence=['#cacbd5']
     )
+    
     st.plotly_chart(fig, use_container_width=True, key=key_value)
 
 
