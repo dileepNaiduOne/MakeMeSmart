@@ -91,6 +91,9 @@ def log_in():
 
                     st.switch_page("papers/home.py")
 
+                else:
+                    st.error("Your Secret Sentence is not matching with the database. :red[PLEASE CHECK]")
+
 
 with col1:
     st.button("SIGN UP", use_container_width=True, type="primary", on_click=sign_up)
