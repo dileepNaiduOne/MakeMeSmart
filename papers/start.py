@@ -36,6 +36,8 @@ def sign_up():
             if submitted:
                 if not secret_sentence or not name or not age or not email or not gender:
                     st.error("All fields are required.")
+                if not age.isnumeric():
+                    st.error("Age should be a number.")
                 else:
                     secret_sentence = secret_sentence.lower().replace(" ", "")
                     if ckeck_if_ss_in_people(secret_sentence) == 1:
