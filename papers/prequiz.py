@@ -11,7 +11,7 @@ with st.status(f"Getting 10 Questions for {st.session_state.person["name"]}", ex
     st.write("Searching Internet...")
     questions = questions_generater.ask_questions(st.session_state["input_topic"], st.session_state["input_difficulty"])
     print(questions)
-    st.session_state["questions"] = eval(questions[9:-4])
+    st.session_state["questions"] = eval(questions[questions.find("["): questions.rfind("]")+1])
     st.write(f"Sorting data about '{st.session_state["input_topic"]}'...")
     time.sleep(2)
     st.write(f"Gathering 10 '{st.session_state["input_difficulty"]}' questions about '{st.session_state["input_topic"]}'")
