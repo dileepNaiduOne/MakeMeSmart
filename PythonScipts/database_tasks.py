@@ -2,6 +2,7 @@ import pymysql
 import os
 from dotenv import load_dotenv
 import streamlit as st
+import pandas as pd
 
 
 
@@ -80,7 +81,14 @@ def add_score_data(ss, topic, dificulty, score):
 
 
 @st.cache_data
-def add_user_data_to_charts(ss):
+def add_user_data_to_charts_and_get(ss):
+    charts = {
+        "date" : [],
+        "topic" : [],
+        "dificulty" : [],
+        "score" : []
+    }
+
     load_dotenv()
 
     db = pymysql.connect(
@@ -98,4 +106,11 @@ def add_user_data_to_charts(ss):
     db.commit()
 
     mycursor.execute(f"select * from charts;")
-    return mycursor
+
+    for i in mycursor:
+        charts["date"].append(i[0])
+        charts["topic"].append(i[1])
+        charts["dificulty"].append(i[2])
+        charts["score"].append(i[3])
+
+    return pd.DataFrame(charts)
