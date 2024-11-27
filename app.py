@@ -85,9 +85,14 @@ mms_page = st.Page(
     title="MMS Charts"
 )
 
+reload_page = st.Page(
+    page="papers/reload.py", 
+    title="Reload Page"
+)
+
 with open( "style.css" ) as css:
     st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
 
-pg = st.navigation(pages=[start_page, home_page, topic_page, pre_quiz_page, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, score_page, charts_page, mms_page], position="hidden")
+pg = st.navigation(pages=[start_page, home_page, topic_page, pre_quiz_page, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, score_page, charts_page, mms_page, reload_page], position="hidden")
 
 pg.run()

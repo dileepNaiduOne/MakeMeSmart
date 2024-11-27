@@ -33,9 +33,7 @@ def make_me_smart(topic, questions_dict):
     4. Stick strictly to the provided data; avoid assumptions.
     5. Conclude the feedback with: "This is 'Make Me Smart' helping you grow smarter every day!"
 
-    Input Example:
-    Topic: Human Development
-    Questions Data:
+    Remember:
     [
         {{
             "question":"During which stage of human development is physical growth most rapid?",
@@ -45,43 +43,10 @@ def make_me_smart(topic, questions_dict):
             "question":"What is the primary developmental task of adolescence according to Erik Erikson?",
             "check":"wrong"
         }},
-        {{
-            "question":"Which of the following cognitive abilities typically declines with age?",
-            "check":"wrong"
-        }},
-        {{
-            "question":"What is the term for the transition period between childhood and adulthood?",
-            "check":"wrong"
-        }},
-        {{
-            "question":"Which of the following is a characteristic of the sensorimotor stage of cognitive development?",
-            "check":"wrong"
-        }},
-        {{
-            "question":"What is the term for the gradual decline in physical and mental abilities that occurs in late adulthood?",
-            "check":"correct"
-        }},
-        {{
-            "question":"Which of the following is a major psychosocial challenge of middle adulthood?",
-            "check":"correct"
-        }},
-        {{
-            "question":"What is the term for the process of adjusting to the physical and psychological changes of aging?",
-            "check":"correct"
-        }},
-        ,
-        {{
-            "question":"What is the term for the ability to understand and share the feelings of others?",
-            "check":"wrong"
-        }}
+        .
+        .
+        .
     ]
-
-
-    Remember:
-    {{
-            "question":"Which of the following is a common physical change associated with menopause?",
-            "check":"wrong"
-    }}
 
     Output Template:
     1. Strengths: Mention specific areas I performed well in.

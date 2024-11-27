@@ -8,80 +8,87 @@ with open( "style.css" ) as css:
 
 
 
-st.image(r"./img/logo-light.svg", width=70)
+try:
 
-questions = st.session_state["questions"]
+    st.image(r"./img/logo-light.svg", width=70)
 
-emojis_correct = [
-    {"emoji": "🫡", "score": 0.1},
-    {"emoji": "🤘", "score": 0.1},
-    {"emoji": "👍", "score": 0.1},
-    {"emoji": "🙌", "score": 0.1},
-    {"emoji": "😘", "score": 0.1},
-    {"emoji": "😍", "score": 0.1},
-    {"emoji": "🥰", "score": 0.1},
-]
+    questions = st.session_state["questions"]
+
+    emojis_correct = [
+        {"emoji": "🫡", "score": 0.1},
+        {"emoji": "🤘", "score": 0.1},
+        {"emoji": "👍", "score": 0.1},
+        {"emoji": "🙌", "score": 0.1},
+        {"emoji": "😘", "score": 0.1},
+        {"emoji": "😍", "score": 0.1},
+        {"emoji": "🥰", "score": 0.1},
+    ]
 
 
-st.write("\n")
-# print(questions)
+    st.write("\n")
+    # print(questions)
 
-i = 0
+    i = 0
 
-q = questions[i]
-# print("==="*50)
-# print(questions[i])
-# print("==="*50)
-ops = {
-    "A" : q["options"][0],
-    "B" : q["options"][1],
-    "C" : q["options"][2],
-    "D" : q["options"][3]
-}
-que = f"{i+1}. {q["question"]}"
-st.write(f"<p style=\"font-weight: bold;\">{que}</p>", unsafe_allow_html=True)
-st.write(f"A. {ops['A']}")
-st.write(f"B. {ops['B']}")
-st.write(f"C. {ops['C']}")
-st.write(f"D. {ops['D']}")
-st.write("\n")
+    q = questions[i]
+    # print("==="*50)
+    # print(questions[i])
+    # print("==="*50)
+    ops = {
+        "A" : q["options"][0],
+        "B" : q["options"][1],
+        "C" : q["options"][2],
+        "D" : q["options"][3]
+    }
+    que = f"{i+1}. {q["question"]}"
+    st.write(f"<p style=\"font-weight: bold;\">{que}</p>", unsafe_allow_html=True)
+    st.write(f"A. {ops['A']}")
+    st.write(f"B. {ops['B']}")
+    st.write(f"C. {ops['C']}")
+    st.write(f"D. {ops['D']}")
+    st.write("\n")
 
-if ("q1_clicked" not in st.session_state):
-    st.session_state.q1_clicked = False
-
-def make_buttons_useless():
-    if (option_chossen == None) or (option_chossen == []):
+    if ("q1_clicked" not in st.session_state):
         st.session_state.q1_clicked = False
-    else:
-        st.session_state.q1_clicked = True
 
-
-option_chossen = st.pills(label="q1", options=["A", "B", "C", "D"], label_visibility="collapsed", disabled=st.session_state.q1_clicked)
-st.write("\n")
-st.write("\n")
-
-check_button = st.button(label="CHECK", type="primary", use_container_width=True, disabled=st.session_state.q1_clicked, key='q1', on_click=make_buttons_useless)
-
-
-if check_button:
-    if (option_chossen == None) or (option_chossen == []):
-        st.error(body=f"{st.session_state.person["name"]}! :red[Choose a Option]", icon=":material/sentiment_very_dissatisfied:")
-    else:
-        if q["correct answer"] == ops[option_chossen]:
-            confetti(emojis_correct)
-            if st.session_state.quesion_bank[1] == None:
-                st.session_state.quesion_bank[1] = 1
-            if st.session_state["check_list"][0]["check"] == None:
-                st.session_state["check_list"][0]["check"] = "correct"
-            time.sleep(4)
-            st.switch_page("papers/q2.py")
+    def make_buttons_useless():
+        if (option_chossen == None) or (option_chossen == []):
+            st.session_state.q1_clicked = False
         else:
-            if st.session_state.quesion_bank[1] == None:
-                st.session_state.quesion_bank[1] = 0
-            if st.session_state["check_list"][0]["check"] == None:
-                st.session_state["check_list"][0]["check"] = "wrong"
-            st.error(f":red[WRONG] - ✅{q["correct answer"]}")
-            time.sleep(4)
-            st.switch_page("papers/q2.py")
+            st.session_state.q1_clicked = True
+
+
+    option_chossen = st.pills(label="q1", options=["A", "B", "C", "D"], label_visibility="collapsed", disabled=st.session_state.q1_clicked)
+    st.write("\n")
+    st.write("\n")
+
+    check_button = st.button(label="CHECK", type="primary", use_container_width=True, disabled=st.session_state.q1_clicked, key='q1', on_click=make_buttons_useless)
+
+
+    if check_button:
+        if (option_chossen == None) or (option_chossen == []):
+            st.error(body=f"{st.session_state.person["name"]}! :red[Choose a Option]", icon=":material/sentiment_very_dissatisfied:")
+        else:
+            if q["correct answer"] == ops[option_chossen]:
+                confetti(emojis_correct)
+                if st.session_state.quesion_bank[1] == None:
+                    st.session_state.quesion_bank[1] = 1
+                if st.session_state["check_list"][0]["check"] == None:
+                    st.session_state["check_list"][0]["check"] = "correct"
+                time.sleep(4)
+                st.switch_page("papers/q2.py")
+            else:
+                if st.session_state.quesion_bank[1] == None:
+                    st.session_state.quesion_bank[1] = 0
+                if st.session_state["check_list"][0]["check"] == None:
+                    st.session_state["check_list"][0]["check"] = "wrong"
+                st.error(f":red[WRONG] - ✅{q["correct answer"]}")
+                time.sleep(4)
+                st.switch_page("papers/q2.py")
         
         
+except KeyError:
+    st.switch_page("papers/reload.py")
+
+except AttributeError:
+    st.switch_page("papers/reload.py")
