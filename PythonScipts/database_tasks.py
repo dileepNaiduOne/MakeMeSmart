@@ -81,8 +81,6 @@ def add_score_data(ss, topic, dificulty, score):
     db.commit()
 
 
-
-@st.cache_data
 def add_user_data_to_charts_and_get(ss):
     charts = {
         "date" : [],

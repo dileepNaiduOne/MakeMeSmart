@@ -29,6 +29,8 @@ def ask_questions(topic, difficulty):
     6. Make sure that you are not giving "All of the above" and "None of the above" options.
     7. I want you to generate unique questions every time I run the quiz. You need to make sure that the questions are never repeated. Use your own
     intelligence to generate questions related to the topic and should be mostly application oriented and business oriented. If you see that the questions are getting repeated, avoid showing that question to the user and instead replace it with a new question.        
+    8. The correct option is generally having longest length among other three options. This is giving a clue to find the correct answer and cheat. Make sure all 4 options are same in length and don't give any visual clues to guess the correct answer. Be unbiased.
+
 
     Output Examples:
     1st Example :

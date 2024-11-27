@@ -40,34 +40,42 @@ st.write(f"D. {ops['D']}")
 st.write("\n")
 
         
-if 'q10' in st.session_state and st.session_state.q10 == True and ('q10_check' in st.session_state):
-    st.session_state.q10_clicked = True
-else:
+if ("q10_clicked" not in st.session_state):
     st.session_state.q10_clicked = False
+
+def make_buttons_useless():
+    if (option_chossen == None) or (option_chossen == []):
+        st.session_state.q10_clicked = False
+    else:
+        st.session_state.q10_clicked = True
 
 option_chossen = st.pills(label="q10", options=["A", "B", "C", "D"], label_visibility="collapsed", disabled=st.session_state.q10_clicked)
 st.write("\n")
 st.write("\n")
 
-check_button = st.button(label="CHECK", type="primary", use_container_width=True, disabled=st.session_state.q10_clicked, key='q10')
+check_button = st.button(label="CHECK", type="primary", use_container_width=True, disabled=st.session_state.q10_clicked, key='q10', on_click=make_buttons_useless)
 if check_button:
     if (option_chossen != None) or (option_chossen != []):
         st.session_state["q10_check"] = True
 
 if check_button:
     if (option_chossen == None) or (option_chossen == []):
-        st.error(body=f"{st.session_state.person["name"]}! Choose a Option", icon=":material/sentiment_very_dissatisfied:")
+        st.error(body=f"{st.session_state.person["name"]}! :red[Choose a Option]", icon=":material/sentiment_very_dissatisfied:")
     else:
         print(q["correct answer"], ops[option_chossen])
         if q["correct answer"] == ops[option_chossen]:
             confetti(emojis_correct)
             if st.session_state.quesion_bank[10] == None:
                 st.session_state.quesion_bank[10] = 1
+            if st.session_state["check_list"][9]["check"] == None:
+                st.session_state["check_list"][9]["check"] = "correct"
             time.sleep(4)
             st.switch_page("papers/score.py")
         else:
             if st.session_state.quesion_bank[10] == None:
                 st.session_state.quesion_bank[10] = 0
+            if st.session_state["check_list"][9]["check"] == None:
+                st.session_state["check_list"][9]["check"] = "wrong"
             st.error(f":red[WRONG] - ✅{q["correct answer"]}")
             time.sleep(4)
             st.switch_page("papers/score.py")

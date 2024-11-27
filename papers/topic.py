@@ -13,7 +13,7 @@ with open( "style.css" ) as css:
 #     st.session_state["user_name"] = user_name
 
 st.image(r"./img/logo-light.svg", width=100)
-st.title(f"Hi, :gray[{st.session_state.person["name"]}] 🤗", anchor=False)
+st.title(f":gray[Hi,] :red[{st.session_state.person["name"]}!]", anchor=False)
 st.divider()
 
 st.text("\n")
