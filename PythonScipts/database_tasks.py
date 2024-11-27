@@ -75,6 +75,8 @@ def add_score_data(ss, topic, dificulty, score):
 
     mycursor = db.cursor()
 
+    mycursor.execute(f"SET time_zone = '+05:30';")
+    db.commit()
     mycursor.execute(f"insert into scores (secret_sentence, date, topic, dificulty, score) values ('{ss}', now(), '{topic}', '{dificulty}', {score})")
     db.commit()
 
