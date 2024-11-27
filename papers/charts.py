@@ -11,9 +11,8 @@ with open( "style.css" ) as css:
 
 st.image(r"./img/logo-light.svg", width=70)
 
-if "user_data" not in st.session_state:
-    st.session_state.user_data = add_user_data_to_charts_and_get(st.session_state.person["secret_sentence"])
-    user_data = st.session_state.user_data
+st.session_state.user_data = add_user_data_to_charts_and_get(st.session_state.person["secret_sentence"])
+user_data = st.session_state.user_data
 
 
 @st.cache_data

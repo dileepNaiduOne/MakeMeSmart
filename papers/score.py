@@ -17,8 +17,6 @@ st.title(f":gray[in '{st.session_state["input_topic"]}']", anchor=False)
 if "score_data" not in st.session_state:
     add_score_data(st.session_state.person["secret_sentence"], st.session_state["input_topic"], st.session_state["input_difficulty"], st.session_state["Score"])
     st.session_state["score_data"] = True
-    if "user_data" in st.session_state:
-        del st.session_state.user_data
 
 return_button = st.button(label="BACK TO HOME", type="primary")
 
