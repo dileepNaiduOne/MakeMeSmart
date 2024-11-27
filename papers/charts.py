@@ -172,7 +172,7 @@ try:
 
     @st.dialog("SHOW MY DATA")
     def show_my_data():
-        st.dataframe(user_data)
+        st.dataframe(user_data, use_container_width=True)
 
     col1, _, col2 = st.columns([2, 0.1, 2])
 
