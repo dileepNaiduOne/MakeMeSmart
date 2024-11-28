@@ -31,7 +31,7 @@ try:
         fig.update_traces(textposition="top center", line=dict(color='#f25270'))
         fig.update_xaxes(tickvals=[d["date"].iloc[0], d["date"].iloc[-1]], ticktext=["Oldest", "Most Recent"], title_text="")
         fig.update_yaxes(showticklabels=False, title_text="SCORE")
-        st.plotly_chart(fig, use_container_width=True, key=key_value)
+        st.plotly_chart(fig, use_container_width=True, key=key_value, on_select="ignore")
 
     @st.cache_data
     def plot_gauge(indicator_number, indicator_title, key_value, indicator_suffix="", indicator_color="#f25270", max_bound=10):
@@ -55,10 +55,10 @@ try:
             )
         )
         fig.update_layout(
-            height=200,
+            height=250,
             margin=dict(l=10, r=10, t=10, b=10, pad=8)
         )
-        st.plotly_chart(fig, use_container_width=True, key=key_value)
+        st.plotly_chart(fig, use_container_width=True, key=key_value, on_select="ignore")
 
 
     @st.cache_data
@@ -68,7 +68,7 @@ try:
                 hover_data=["Mean"])
         fig.update_traces(textposition='inside', textinfo='percent+label',  marker=dict(colors=['#f25270', "#AFB1C0", '#cacbd5', '#F3F3F6']))
         fig.update_layout(showlegend=False)
-        st.plotly_chart(fig, use_container_width=True, key=key_value)
+        st.plotly_chart(fig, use_container_width=True, key=key_value, on_select="ignore")
 
 
     @st.cache_data
@@ -81,7 +81,7 @@ try:
             color_discrete_sequence=['#cacbd5']
         )
         
-        st.plotly_chart(fig, use_container_width=True, key=key_value)
+        st.plotly_chart(fig, use_container_width=True, key=key_value, on_select="ignore")
 
 
     ##############################################################################################################
