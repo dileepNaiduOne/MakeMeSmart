@@ -55,7 +55,7 @@ try:
             )
         )
         fig.update_layout(
-            height=250,
+            height=300,
             margin=dict(l=10, r=10, t=10, b=10, pad=8)
         )
         st.plotly_chart(fig, use_container_width=True, key=key_value, on_select="ignore")
