@@ -5,8 +5,6 @@ import streamlit as st
 import pandas as pd
 
 
-
-@st.cache_data
 def add_people_data(ss, name, age, email, gender):
     load_dotenv()
 
@@ -23,8 +21,6 @@ def add_people_data(ss, name, age, email, gender):
     db.commit()
 
 
-
-@st.cache_data
 def ckeck_if_ss_in_people(ss):
     load_dotenv()
 
@@ -42,8 +38,6 @@ def ckeck_if_ss_in_people(ss):
     return len([i for i in mycursor])
 
 
-
-@st.cache_data
 def get_data_from_people_using_ss(ss):
     load_dotenv()
 
@@ -61,8 +55,6 @@ def get_data_from_people_using_ss(ss):
     return list(mycursor)[0]
 
 
-
-@st.cache_data
 def add_score_data(ss, topic, dificulty, score):
     load_dotenv()
 
