@@ -16,7 +16,7 @@ try:
     st.write("\n")
     st.write("\n")
 
-    with st.spinner(f"Hang tight! :gray[Your quiz summary is on the way.] :red[Meanwhile, can you guess which question caught your attention the most?]"):
+    with st.spinner(f"Hang tight! :gray[Your quiz summary is on the way.] :red[Meanwhile, can you think about the question which caught your attention the most?]"):
         if "text_shown" not in st.session_state:
             st.write(make_me_smart(st.session_state["input_topic"], st.session_state["check_list"]))
             st.session_state["text_shown"] = True
