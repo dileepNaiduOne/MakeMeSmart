@@ -1,5 +1,7 @@
 # MakeMeSmart-Streamlit
-#  https://makemesmart.streamlit.app/
+App link - https://makemesmart.streamlit.app/
+
+---
 
 <h3 align="center">
   <p>&nbsp;</p>
@@ -9,4 +11,6 @@
   <p>&nbsp;</p>
 </h3>
 
+
+---
 Shelved Full Stack Project Frontend - https://make-me-smart.vercel.app/
