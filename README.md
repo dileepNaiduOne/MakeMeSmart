@@ -16,7 +16,7 @@
   <p>&nbsp;</p>
   Architecture
   <p>&nbsp;</p>
-  <img align="center" src="https://raw.githubusercontent.com/dileepNaiduOne/MakeMeSmart/refs/heads/main/pics/QUiz%20Section.png" alt="Architecture" />
+  <img align="center" src="https://raw.githubusercontent.com/dileepNaiduOne/MakeMeSmart/refs/heads/main/pics/QUiz%20Section.png" alt="Architecture" height="800"/>
   <p>&nbsp;</p>
   <p>&nbsp;</p>
 </h3>
