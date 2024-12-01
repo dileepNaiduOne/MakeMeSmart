@@ -11,6 +11,10 @@ App link - https://makemesmart.streamlit.app/
   <p>&nbsp;</p>
 </h3>
 
+---
+
+![QUiz Section](https://github.com/user-attachments/assets/53abb32b-1274-4507-b83d-9f038cb050ce)
+
 
 ---
 Shelved Full Stack Project Frontend - https://make-me-smart.vercel.app/
