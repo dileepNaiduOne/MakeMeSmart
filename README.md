@@ -1,12 +1,11 @@
-# MakeMeSmart-Streamlit
-App link - https://makemesmart.streamlit.app/
+# MakeMeSmart-Streamlit <sub>[AppLink](https://makemesmart.streamlit.app/)</sub>
 
----
 
 <h3 align="center">
   <p>&nbsp;</p>
+  Working Demo
   <p>&nbsp;</p>
-  <a href="https://youtu.be/64UKDUKOW3I?si=4fXe7mSWal4hTDva" target="_blank" ><img align="center" src="https://raw.githubusercontent.com/dileepNaiduOne/MakeMeSmart/refs/heads/main/Youtube%20%20thumbnail.png" alt="Thumbnail" height="280" width="500" /></a>
+  <a href="https://youtu.be/64UKDUKOW3I?si=4fXe7mSWal4hTDva" target="_blank" ><img align="center" src="https://raw.githubusercontent.com/dileepNaiduOne/MakeMeSmart/refs/heads/main/pics/Youtube%20%20thumbnail.png" alt="Thumbnail" height="280" width="500" /></a>
   <p>&nbsp;</p>
   <p>&nbsp;</p>
 </h3>
@@ -15,12 +14,12 @@ App link - https://makemesmart.streamlit.app/
 
 <h3 align="center">
   <p>&nbsp;</p>
+  Architecture
   <p>&nbsp;</p>
-  <a href="https://youtu.be/64UKDUKOW3I?si=4fXe7mSWal4hTDva" target="_blank" ><img align="center" src="https://raw.githubusercontent.com/dileepNaiduOne/MakeMeSmart/refs/heads/main/Youtube%20%20thumbnail.png" alt="Thumbnail" height="280" width="500" /></a>
+  <img align="center" src="https://raw.githubusercontent.com/dileepNaiduOne/MakeMeSmart/refs/heads/main/pics/QUiz%20Section.png" alt="Architecture" />
   <p>&nbsp;</p>
   <p>&nbsp;</p>
 </h3>
-![QUiz Section](https://github.com/user-attachments/assets/53abb32b-1274-4507-b83d-9f038cb050ce)
 
 ---
 
@@ -61,4 +60,4 @@ For any suggestions, questions or inquiries, please contact [dile2107@gmail.com]
 
 ---
 
-Shelved Full Stack Project Frontend - https://make-me-smart.vercel.app/
+<sub>Shelved Full Stack Project Frontend - https://make-me-smart.vercel.app/</sub>
