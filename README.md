@@ -26,17 +26,17 @@
 This project is a **`comprehensive e-learning platform`** built by writing around **`1500 lines of Python code`** to develop. Key features includeuser authentication (MySQL database), interactive quizzes powered by LLM (Gemini 1.5 Pro). It allows users to **`take quizzes, track their scores, and view performance summaries`** through interactive charts. The application utilizes a cloud-based MySQL database for data persistence.
 
 ## Features
-* User Authentication: Secure user login and registration.
-* Quiz Section: A dynamic quiz experience with a variety of questions uing LLM.
-* Score Tracking: Individual user scores are saved and tracked.
-* Interactive Charts: Visual representations of user performance using charts generated from the stored scores.
-* Summary Page: Provides a comprehensive overview of user progress and scores.
+- [x] User Authentication: Secure user login and registration.
+- [x] Quiz Section: A dynamic quiz experience with a variety of questions uing LLM.
+- [x] Score Tracking: Individual user scores are saved and tracked.
+- [x] Interactive Charts: Visual representations of user performance using charts generated from the stored scores.
+- [x] Summary Page: Provides a comprehensive overview of user progress and scores.
 
 ## Architecture
 The application follows a `three-tier architecture`:
-* Presentation Tier (**Frontend**): Handles user interaction, displays quizzes, scores and charts.
-* Application Tier (**Backend**): Manages user authentication, quiz logic, data retrieval, and chart data generation.
-* Data Tier (**Database**): Stores user information, quiz questions, and user scores in a cloud-based MySQL database.
+  1. Presentation Tier (**Frontend**): Handles user interaction, displays quizzes, scores and charts.
+  2. Application Tier (**Backend**): Manages user authentication, quiz logic, data retrieval, and chart data generation.
+  3. Data Tier (**Database**): Stores user information, quiz questions, and user scores in a cloud-based MySQL database.
 
 
 ## Technologies Used
