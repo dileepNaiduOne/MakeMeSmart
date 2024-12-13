@@ -1,12 +1,11 @@
-# MakeMeSmart-Streamlit
-App link - https://makemesmart.streamlit.app/
+# MakeMeSmart-Streamlit <sub>[AppLink](https://makemesmart.streamlit.app/)</sub>
 
----
 
 <h3 align="center">
   <p>&nbsp;</p>
+  Working Demo
   <p>&nbsp;</p>
-  <a href="https://youtu.be/64UKDUKOW3I?si=4fXe7mSWal4hTDva" target="_blank" ><img align="center" src="https://raw.githubusercontent.com/dileepNaiduOne/MakeMeSmart/refs/heads/main/Youtube%20%20thumbnail.png" alt="Thumbnail" height="280" width="500" /></a>
+  <a href="https://youtu.be/64UKDUKOW3I?si=4fXe7mSWal4hTDva" target="_blank" ><img align="center" src="https://raw.githubusercontent.com/dileepNaiduOne/MakeMeSmart/refs/heads/main/pics/Youtube%20%20thumbnail.png" alt="Thumbnail" height="280" width="500" /></a>
   <p>&nbsp;</p>
   <p>&nbsp;</p>
 </h3>
@@ -15,29 +14,29 @@ App link - https://makemesmart.streamlit.app/
 
 <h3 align="center">
   <p>&nbsp;</p>
+  Architecture
   <p>&nbsp;</p>
-  <a href="https://youtu.be/64UKDUKOW3I?si=4fXe7mSWal4hTDva" target="_blank" ><img align="center" src="https://raw.githubusercontent.com/dileepNaiduOne/MakeMeSmart/refs/heads/main/Youtube%20%20thumbnail.png" alt="Thumbnail" height="280" width="500" /></a>
+  <img align="center" src="https://raw.githubusercontent.com/dileepNaiduOne/MakeMeSmart/refs/heads/main/pics/QUiz%20Section.png" alt="Architecture" height="800"/>
   <p>&nbsp;</p>
   <p>&nbsp;</p>
 </h3>
-![QUiz Section](https://github.com/user-attachments/assets/53abb32b-1274-4507-b83d-9f038cb050ce)
 
 ---
 
 This project is a **`comprehensive e-learning platform`** built by writing around **`1500 lines of Python code`** to develop. Key features includeuser authentication (MySQL database), interactive quizzes powered by LLM (Gemini 1.5 Pro). It allows users to **`take quizzes, track their scores, and view performance summaries`** through interactive charts. The application utilizes a cloud-based MySQL database for data persistence.
 
 ## Features
-* User Authentication: Secure user login and registration.
-* Quiz Section: A dynamic quiz experience with a variety of questions uing LLM.
-* Score Tracking: Individual user scores are saved and tracked.
-* Interactive Charts: Visual representations of user performance using charts generated from the stored scores.
-* Summary Page: Provides a comprehensive overview of user progress and scores.
+- [x] User Authentication: Secure user login and registration.
+- [x] Quiz Section: A dynamic quiz experience with a variety of questions uing LLM.
+- [x] Score Tracking: Individual user scores are saved and tracked.
+- [x] Interactive Charts: Visual representations of user performance using charts generated from the stored scores.
+- [x] Summary Page: Provides a comprehensive overview of user progress and scores.
 
 ## Architecture
 The application follows a `three-tier architecture`:
-* Presentation Tier (**Frontend**): Handles user interaction, displays quizzes, scores and charts.
-* Application Tier (**Backend**): Manages user authentication, quiz logic, data retrieval, and chart data generation.
-* Data Tier (**Database**): Stores user information, quiz questions, and user scores in a cloud-based MySQL database.
+  1. Presentation Tier (**Frontend**): Handles user interaction, displays quizzes, scores and charts.
+  2. Application Tier (**Backend**): Manages user authentication, quiz logic, data retrieval, and chart data generation.
+  3. Data Tier (**Database**): Stores user information, quiz questions, and user scores in a cloud-based MySQL database.
 
 
 ## Technologies Used
@@ -61,4 +60,4 @@ For any suggestions, questions or inquiries, please contact [dile2107@gmail.com]
 
 ---
 
-Shelved Full Stack Project Frontend - https://make-me-smart.vercel.app/
+<sub>Shelved Full Stack Project Frontend - https://make-me-smart.vercel.app/</sub>
