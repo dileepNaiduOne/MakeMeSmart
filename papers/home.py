@@ -40,6 +40,11 @@ try:
                 del st.session_state[key]
             st.switch_page("papers/start.py")
 
+    st.write("\n")
+    st.write("\n")
+    
+    st.caption(":red[Caution] : :gray[This app is using Gemini 2.0 Flash. The odds of an LLM slip-up are super low, but hey, always stay sharp!!!]")
+
 except KeyError:
     st.switch_page("papers/reload.py")
 

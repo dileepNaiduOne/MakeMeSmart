@@ -21,6 +21,7 @@ def make_me_smart(topic, questions_dict):
     1. Strengths: Topics/questions I am good at.
     2. Improvements Needed: Topics/questions I need to prepare more on.
     3. Action Plan: Short, actionable, and distinct suggestions to help me improve.
+    4. Youtube Resources: Videos on topics on which I need more preparation. Give the name of video and channel name, based on higest views count for each topic
 
     Rules:
     1. Input includes:
@@ -31,7 +32,9 @@ def make_me_smart(topic, questions_dict):
     2. Be polite, encouraging, and inspiring to motivate improvement.
     3. Ensure suggestions are non-repetitive, concise, and actionable.
     4. Stick strictly to the provided data; avoid assumptions.
-    5. Conclude the feedback with: "This is 'Make Me Smart' helping you grow smarter every day!"
+    5. Make sure that the formation is consistant through out the prompt. The heading, sub-heading, etcetra. Heading in Bold, Sub-headings in thicker but less than bold.
+    6. Remove all "<br>" in the prompt.
+    7. Conclude the feedback with: "This is 'Make Me Smart' helping you grow smarter every day!"
 
     Remember:
     [
@@ -52,7 +55,8 @@ def make_me_smart(topic, questions_dict):
     1. Strengths: Mention specific areas I performed well in.
     2. Improvements Needed: Highlight areas needing focus.
     3. Action Plan: List clear and distinct steps to improve weak areas.
-    4. End with: "This is 'Make Me Smart' helping you grow smarter every day!" - This is bold and in same font size of heading 
+    4. Youtube Resources: Videos on topics on which I need more preparation. Give the name of video and channel name, based on higest views count for each topic
+    5. End with: "This is 'Make Me Smart' helping you grow smarter every day!" - This is bold and in bigger font size. 
 
     Make your analysis crisp, motivational, and precise. Use the provided data effectively. Make sure you are giving proper line spacing among the paragraphs.
 
@@ -67,7 +71,7 @@ def make_me_smart(topic, questions_dict):
 
 
     # Intiate the model
-    llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro-exp-0801", api_key = os.getenv("GOOGLE-API-KEY"), temperature = 0.15)
+    llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash-exp", api_key = os.getenv("GOOGLE-API-KEY"), temperature = 0.15)
 
 
     llm_chain = prompt_template | llm
