@@ -1,12 +1,10 @@
 import google.generativeai as genai
 from langchain_core.prompts import PromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_core.caches import BaseCache
 import os
 from dotenv import load_dotenv
 from langchain_core.output_parsers import StrOutputParser
 
-ChatGoogleGenerativeAI.model_rebuild()
 
 ##########################################################################################
 
@@ -199,7 +197,8 @@ def ask_questions(topic, difficulty):
 
 
     # Intiate the model
-    llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash-exp", api_key = os.getenv("GOOGLE-API-KEY"), temperature = 0.15)
+    llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash-latest", api_key = os.getenv("GOOGLE-API-KEY"), temperature = 0.15)
+    # llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash-exp", api_key = os.getenv("GOOGLE-API-KEY"), temperature = 0.15)
 
     output_parser = StrOutputParser()
 
