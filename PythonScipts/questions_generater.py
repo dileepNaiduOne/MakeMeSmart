@@ -1,4 +1,5 @@
 import google.generativeai as genai
+from google import genai
 from langchain_core.prompts import PromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 import os
@@ -11,9 +12,9 @@ from langchain_core.output_parsers import StrOutputParser
 
 def ask_questions(topic, difficulty):
     load_dotenv()  # Activate the Local Environment
-    genai.configure(api_key=os.getenv("GOOGLE-API-KEY"))
+    client = genai.Client(api_key=os.getenv("GOOGLE-API-KEY"))
 
-    prompt_template = '''
+    prompt = f'''
     You are the worlds top AI Quiz Master, known for generating highly accurate and topic-specific questions. I will provide you with a topic and a difficulty level. Your task is to create 10 unique questions on the specified topic, following these rules:
 
     1. Each question must have four options, with exactly one correct answer and three incorrect ones.
@@ -185,23 +186,8 @@ def ask_questions(topic, difficulty):
     Instruction Template: The topic is {topic} and the question difficulty is {difficulty}. Now generate 10 questions as specified.
     '''
 
-    prompt_template = PromptTemplate(
-        input_variables=["topic", "difficulty"],  # Fixed: Changed from input_variable to input_variables
-        template=prompt_template
-    )
-
     # Initiate the model
-    llm = ChatGoogleGenerativeAI(
-        model="gemini-1.5-flash-latest", 
-        api_key=os.getenv("GOOGLE-API-KEY"), 
-        temperature=0.15
+    response = client.models.generate_content(
+        model='gemini-2.0-flash-exp', contents=prompt
     )
-    # llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash-exp", api_key = os.getenv("GOOGLE-API-KEY"), temperature = 0.15)
-
-    output_parser = StrOutputParser()
-
-    llm_chain = prompt_template | llm | output_parser
-
-    # Fixed: Removed .content since StrOutputParser already returns a string
-    questions = llm_chain.invoke({"topic": topic, "difficulty": difficulty})
-    return questions
+    return response.text
