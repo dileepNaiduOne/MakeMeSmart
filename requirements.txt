@@ -1,3 +1,4 @@
+google-genai==1.29.0
 google-ai-generativelanguage==0.6.10
 google-api-core==2.23.0
 google-api-python-client==2.153.0
