@@ -1,4 +1,5 @@
 import google.generativeai as genai
+from google import genai
 from langchain_core.prompts import PromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 import os
@@ -12,10 +13,10 @@ from dotenv import load_dotenv
 
 def make_me_smart(topic, questions_dict):
     load_dotenv() # Activate the Local Environment
-    genai.configure(api_key=os.getenv("GOOGLE-API-KEY"))
+    client = genai.Client(api_key=os.getenv("GOOGLE-API-KEY"))
 
 
-    prompt_template = '''
+    prompt= f'''
     You are the world's top AI mentor, skilled in analyzing quiz performance and providing motivational guidance. Based on the quiz data I share, your task is to create a summary report highlighting:
 
     1. Strengths: Topics/questions I am good at.
@@ -64,18 +65,7 @@ def make_me_smart(topic, questions_dict):
     
     '''
 
-    prompt_template = PromptTemplate(
-        input_variable=["topic", "questions_dict"], 
-        template = prompt_template
+    response = client.models.generate_content(
+        model='gemini-2.0-flash-exp', contents=prompt
     )
-
-
-    # Intiate the model
-    llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash-exp", api_key = os.getenv("GOOGLE-API-KEY"), temperature = 0.15)
-
-
-    llm_chain = prompt_template | llm
-
-
-    summary = llm_chain.invoke({"topic" : topic, "questions_dict" : questions_dict}).content
-    return summary
+    return response.text
