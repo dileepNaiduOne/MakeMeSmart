@@ -66,6 +66,6 @@ def make_me_smart(topic, questions_dict):
     '''
 
     response = client.models.generate_content(
-        model='gemini-2.0-flash-exp', contents=prompt
+        model='gemini-2.5-pro', contents=prompt
     )
     return response.text
