@@ -114,7 +114,7 @@ st.write("\n")
 
 col1, col2, col3, col4 = st.columns([0.8, 0.08,0.20,0.1])
 with col1:
-    st.caption(":red[Caution] : :gray[This app is using Gemini 2.0 Flash. The odds of an LLM slip-up are super low, but hey, always stay sharp!!!]")
+    st.caption(":red[Caution] : :gray[This app is using Gemini 2.5 Pro. The odds of an LLM slip-up are super low, but hey, always stay sharp!!!]")
 with col3:
     st.caption(":gray[Wanna have a chat with me...]")
 with col4:
