@@ -24,12 +24,12 @@ try:
     col1, _, col2 = st.columns([2, 0.1, 2])
 
     with col1:
-        return_button = st.button(label="BACK TO HOME",use_container_width=True, type="primary")
+        return_button = st.button(label="Home",use_container_width=True, type="primary")
         if return_button:
             st.switch_page("papers/home.py")
 
     with col2:
-        mms_button = st.button(label="MAKE ME SMART",use_container_width=True, type="primary")
+        mms_button = st.button(label="MakeMeSmart -Summary",use_container_width=True, type="primary")
         if mms_button:
             st.switch_page("papers/mms.py")
 
