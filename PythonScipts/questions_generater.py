@@ -188,6 +188,6 @@ def ask_questions(topic, difficulty):
 
     # Initiate the model
     response = client.models.generate_content(
-        model='gemini-2.0-flash-exp', contents=prompt
+        model='gemini-2.5-pro', contents=prompt
     )
     return response.text
